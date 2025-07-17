@@ -189,10 +189,12 @@ body {
     position: relative;
     height: 100vh;
     display: flex;
-    align-items: flex-end; /* This aligns content to bottom */
+    align-items: flex-end;
     overflow: hidden;
+    background-attachment: scroll;
 }
 
+/* Remove the problematic fixed positioning and restore proper background handling */
 .hero-background,
 .about-background,
 .services-hero .hero-background {
@@ -212,10 +214,10 @@ body {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    z-index: -1;
+    z-index: 1;
 }
 
 @media (max-width: 768px) {
@@ -226,6 +228,19 @@ body {
         height: 100%;
         width: 100%;
         object-fit: cover;
+        object-position: center center;
+        transform: none !important;
+        top: 0;
+        left: 0;
+    }
+    
+    .hero-background,
+    .about-background,
+    .services-hero .hero-background {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        overflow: hidden;
     }
 }
 
@@ -638,9 +653,10 @@ body {
 
 /* About Section */
 .about {
-    padding: 100px 0;
     position: relative;
+    padding: 8rem 0 6rem;
     overflow: hidden;
+    background-attachment: scroll;
 }
 
 .about-background {
@@ -705,22 +721,17 @@ body {
     padding: 0 1rem;
 }
 
+/* Add proper spacing for the about section buttons */
+.about-buttons {
+    margin-top: 3rem;
+    text-align: center;
+    padding-top: 2rem;
+}
+
 @media (max-width: 768px) {
-    .about {
-        padding: 4rem 0 4rem;
-    }
-    .bento-gallery {
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-    .about .about-buttons {
-        margin-top: 0.5rem !important;
-        margin-bottom: 3.5rem !important;
-        text-align: center;
-    }
-    .btn-outline {
-        width: 100%;
-        max-width: 300px;
+    .about-buttons {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
     }
 }
 
@@ -742,6 +753,17 @@ body {
     max-width: 1200px;
     margin: 40px auto 40px; /* Add bottom margin to match top */
     padding: 20px;
+}
+
+/* Ensure bento gallery has proper bottom spacing */
+.bento-gallery {
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .bento-gallery {
+        margin-bottom: 1.5rem;
+    }
 }
 
 .bento-gallery::before {
@@ -1914,6 +1936,7 @@ body {
     .services-hero {
         height: auto;
         min-height: 100vh;
+        background-attachment: scroll;
     }
 
     .hero-background,
