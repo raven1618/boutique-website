@@ -347,7 +347,7 @@ body {
         url('images/features-background.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: scroll;
     overflow: hidden;
 }
 
@@ -945,7 +945,7 @@ body {
         url('images/New-car5.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+    background-attachment: scroll;
     overflow: hidden;
 }
 
@@ -1952,5 +1952,15 @@ body {
         position: absolute;
         height: 100%;
         transform: none !important;
+    }
+} 
+
+/* Add mobile-specific styles to ensure proper background handling */
+@media (max-width: 768px) {
+    .featured-services,
+    .services {
+        background-attachment: scroll !important;
+        background-size: cover !important;
+        background-position: center center !important;
     }
 } 
