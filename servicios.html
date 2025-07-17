@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - Lavadero Boutique | Servicio Premium de Lavado Automotriz</title>
+    <meta name="description" content="Descubre nuestra gama completa de servicios premium de lavado y detailing automotriz. Servicios profesionales para el cuidado de tu vehículo en Asunción.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">
+                    <img src="images/logo-horizontal.png" alt="LAVADERO BOUTIQUE" class="logo-image">
+                </a>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Inicio</a>
+                <a href="servicios.html" class="nav-link active">Servicios</a>
+                <a href="index.html#contacto" class="nav-link">Contacto</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Services Hero Section -->
+    <section class="services-hero">
+        <div class="hero-background">
+            <img src="images/servicios-background.png" alt="Servicios Premium de Lavado" class="hero-bg-image">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="container">
+                <h1 class="section-title">Nuestros Servicios</h1>
+                <p class="services-subtitle">Descubre nuestra gama completa de servicios premium para el cuidado de tu vehículo</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services List -->
+    <section class="services-list">
+      <div class="container">
+        <div class="service-list">
+          <div class="service-card" onclick="openWhatsApp('Ducha y aspirado')">
+            <div class="service-title">Ducha y aspirado</div>
+            <div class="service-subtitle">Limpieza profesional exterior e interior</div>
+            <ul class="service-features">
+              <li>Autos <span class="price-item">Gs. 80.000</span></li>
+              <li>SUV's <span class="price-item">Gs. 90.000</span></li>
+              <li>Camionetas <span class="price-item">Gs. 100.000</span></li>
+            </ul>
+          </div>
+          <div class="service-card" onclick="openWhatsApp('Encerado y pulido')">
+            <div class="service-title">Encerado y pulido</div>
+            <div class="service-subtitle">Restauramos el brillo original de tu vehículo</div>
+            <div class="service-price">Gs. 200.000</div>
+          </div>
+          <div class="service-card" onclick="openWhatsApp('Limpieza de tapizado')">
+            <div class="service-title">Limpieza de tapizado</div>
+            <div class="service-subtitle">Con máquinas especializadas para tapizados</div>
+            <div class="service-price"><span class="price-prefix">Desde</span> Gs. 350.000 <span class="price-prefix">hasta</span> 2.500.000</div>
+          </div>
+          <div class="service-card" onclick="openWhatsApp('Descontaminación interior con ozono')">
+            <div class="service-title">Descontaminación interior con ozono</div>
+            <div class="service-subtitle">Eliminación de bacterias y malos olores</div>
+            <div class="service-price">Gs. 50.000</div>
+          </div>
+          <div class="service-card" onclick="openWhatsApp('Remoción de manchas en cristales')">
+            <div class="service-title">Remoción de manchas en cristales</div>
+            <div class="service-subtitle">Limpieza especializada de vidrios</div>
+            <div class="service-price">Consultar</div>
+          </div>
+          <div class="service-card" onclick="openWhatsApp('Tratamiento nano cerámico')">
+            <div class="service-title">Tratamiento nano cerámico</div>
+            <div class="service-subtitle">Protección avanzada para tu vehículo</div>
+            <div class="service-price"><span class="price-prefix">Desde</span> Gs. 1.800.000 <span class="price-prefix">hasta</span> 5.500.000</div>
+          </div>
+          <div class="service-card" onclick="openWhatsApp('Hidratación de cuero')">
+            <div class="service-title">Hidratación de cuero</div>
+            <div class="service-subtitle">Mantenimiento profesional de cuero</div>
+            <div class="service-price">Consultar</div>
+          </div>
+          <div class="service-card" onclick="openWhatsApp('Lavado de motor a vapor')">
+            <div class="service-title">Lavado de motor a vapor</div>
+            <div class="service-subtitle">Limpieza profunda del compartimento del motor</div>
+            <div class="service-price">Consultar</div>
+          </div>
+          <div class="service-card" onclick="openWhatsApp('Tapicería Automotriz')">
+            <div class="service-title">Tapicería Automotriz</div>
+            <div class="service-subtitle">Servicios especializados de tapicería</div>
+            <ul class="service-features">
+              <li>Tapizado y retapizado en cuero o tela</li>
+              <li>Retapizado profesional de volantes</li>
+              <li>Alfombrado a medida con goma de alta resistencia</li>
+            </ul>
+          </div>
+          <div class="service-card" onclick="openWhatsApp('Equipamiento y Confort')">
+            <div class="service-title">Equipamiento y Confort</div>
+            <div class="service-subtitle">Mejoras y accesorios para tu vehículo</div>
+            <ul class="service-features">
+              <li>Colocación de polarizados con materiales de alta gama</li>
+              <li>Remoción segura de polarizados existentes</li>
+              <li>Asesoramiento e instalación de sistemas de sonido personalizados</li>
+            </ul>
+          </div>
+          <div class="service-card" onclick="openWhatsApp('Chapería y Pintura')">
+            <div class="service-title">Chapería y Pintura</div>
+            <div class="service-subtitle">En alianza con Buby Restauraciones, taller con más de 40 años de experiencia</div>
+            <ul class="service-features">
+              <li>Trabajos de chapería de precisión</li>
+              <li>Pintura de primer nivel con acabado profesional</li>
+              <li>Restauraciones parciales o completas con garantía de calidad</li>
+            </ul>
+          </div>
+          <div class="service-card" onclick="openWhatsApp('Reparación y Embellecimiento de Llantas')">
+            <div class="service-title">Reparación y Embellecimiento de Llantas</div>
+            <div class="service-subtitle">Servicios especializados para llantas</div>
+            <ul class="service-features">
+              <li>Reparación de llantas dañadas por golpes o bordes</li>
+              <li>Pintura personalizada o restauración original</li>
+              <li>Diamantado de llantas con acabado premium para una estética superior</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+        // WhatsApp integration
+        function openWhatsApp(service) {
+            const phoneNumber = '595981123456'; // Replace with actual phone number
+            const message = `Hola! Me interesa el servicio de ${service}. ¿Podrían brindarme más información?`;
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+        }
+
+        // Simple tab navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.category-link');
+            const panels = document.querySelectorAll('.service-category');
+            
+            function switchTab(oldTab, newTab) {
+                newTab.focus();
+                newTab.setAttribute('aria-selected', 'true');
+                oldTab.setAttribute('aria-selected', 'false');
+                oldTab.classList.remove('active');
+                newTab.classList.add('active');
+            }
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', e => {
+                    e.preventDefault();
+                    const currentTab = document.querySelector('.category-link[aria-selected="true"]');
+                    if (e.currentTarget !== currentTab) {
+                        switchTab(currentTab, e.currentTarget);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 
