@@ -338,17 +338,42 @@ body {
 }
 
 
-/* Featured Services Section */
+/* Featured Services Section - New approach with img elements */
 .featured-services {
     position: relative;
     padding: 6rem 0;
-    background: 
-        linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-        url('images/features-background.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: scroll;
     overflow: hidden;
+}
+
+.featured-services-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.featured-services-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.featured-services-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    z-index: 2;
+}
+
+.featured-services .container {
+    position: relative;
+    z-index: 3;
 }
 
 .featured-services .section-title {
@@ -936,17 +961,42 @@ body {
     .bento-item-6 { grid-row: 6 / 7; }
 }
 
-/* Services Section */
+/* Services Section - New approach with img elements */
 .services {
     position: relative;
     padding: 6rem 0;
-    background: 
-        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-        url('images/New-car5.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: scroll;
     overflow: hidden;
+}
+
+.services-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.services-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.services-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6));
+    z-index: 2;
+}
+
+.services .container {
+    position: relative;
+    z-index: 3;
 }
 
 .services .section-title {
@@ -1955,12 +2005,18 @@ body {
     }
 } 
 
-/* Add mobile-specific styles to ensure proper background handling */
+/* Mobile-specific adjustments for new img-based backgrounds */
 @media (max-width: 768px) {
-    .featured-services,
-    .services {
-        background-attachment: scroll !important;
-        background-size: cover !important;
-        background-position: center center !important;
+    .featured-services-bg img,
+    .services-bg img {
+        object-fit: cover;
+        object-position: center center;
+        height: 100%;
+        width: 100%;
+    }
+    
+    .featured-services-overlay,
+    .services-overlay {
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
     }
 } 
