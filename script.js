@@ -342,6 +342,90 @@ window.addEventListener('scroll', () => {
 
 console.log('Lavadero Boutique - Website loaded successfully!'); 
 
+// Parallax effect for background images
+function initParallax() {
+    const featuredServicesBg = document.querySelector('.featured-services-bg');
+    const servicesBg = document.querySelector('.services-bg');
+    
+    if (!featuredServicesBg && !servicesBg) return;
+    
+    // Check if device prefers reduced motion
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    // Disable parallax on mobile or if user prefers reduced motion
+    const isMobile = window.innerWidth <= 768;
+    
+    if (isMobile || prefersReducedMotion) {
+        if (featuredServicesBg) {
+            featuredServicesBg.style.position = 'absolute';
+            featuredServicesBg.style.height = '100%';
+        }
+        if (servicesBg) {
+            servicesBg.style.position = 'absolute';
+            servicesBg.style.height = '100%';
+        }
+        return;
+    }
+    
+    function updateParallax() {
+        const scrolled = window.pageYOffset;
+        const rate = scrolled * -0.5;
+        
+        if (featuredServicesBg) {
+            featuredServicesBg.style.transform = `translate3d(0, ${rate}px, 0)`;
+        }
+        if (servicesBg) {
+            servicesBg.style.transform = `translate3d(0, ${rate}px, 0)`;
+        }
+    }
+    
+    // Throttle scroll events for performance
+    let ticking = false;
+    function requestTick() {
+        if (!ticking) {
+            requestAnimationFrame(updateParallax);
+            ticking = true;
+        }
+    }
+    
+    function handleScroll() {
+        ticking = false;
+        requestTick();
+    }
+    
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    // Handle resize
+    window.addEventListener('resize', () => {
+        if (window.innerWidth <= 768) {
+            window.removeEventListener('scroll', handleScroll);
+            if (featuredServicesBg) {
+                featuredServicesBg.style.position = 'absolute';
+                featuredServicesBg.style.height = '100%';
+                featuredServicesBg.style.transform = 'none';
+            }
+            if (servicesBg) {
+                servicesBg.style.position = 'absolute';
+                servicesBg.style.height = '100%';
+                servicesBg.style.transform = 'none';
+            }
+        } else {
+            window.addEventListener('scroll', handleScroll, { passive: true });
+            if (featuredServicesBg) {
+                featuredServicesBg.style.position = 'fixed';
+                featuredServicesBg.style.height = '120%';
+            }
+            if (servicesBg) {
+                servicesBg.style.position = 'fixed';
+                servicesBg.style.height = '120%';
+            }
+        }
+    });
+}
+
+// Initialize parallax when DOM is loaded
+document.addEventListener('DOMContentLoaded', initParallax);
+
 // BentoGallery functionality
 document.addEventListener('DOMContentLoaded', () => {
     const bentoItems = document.querySelectorAll('.bento-item');
