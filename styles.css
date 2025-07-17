@@ -2101,9 +2101,10 @@ body {
     
     .featured-services-bg,
     .services-bg {
-        position: absolute;
-        height: 100%;
-        will-change: auto;
+        position: absolute !important;
+        height: 100% !important;
+        will-change: auto !important;
+        transform: none !important;
     }
     
     .featured-services-bg img,
@@ -2112,11 +2113,34 @@ body {
         object-position: center center;
         height: 100%;
         width: 100%;
-        transform: none;
+        transform: none !important;
     }
     
     .featured-services-overlay,
     .services-overlay {
         background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+    }
+}
+
+/* iOS-specific fixes */
+@supports (-webkit-touch-callout: none) {
+    .featured-services-bg,
+    .services-bg {
+        position: absolute !important;
+        height: 100% !important;
+        will-change: auto !important;
+        transform: none !important;
+    }
+    
+    .featured-services-bg img,
+    .services-bg img {
+        transform: none !important;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
     }
 } 

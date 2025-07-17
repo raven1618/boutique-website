@@ -352,17 +352,25 @@ function initParallax() {
     // Check if device prefers reduced motion
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     
-    // Disable parallax on mobile or if user prefers reduced motion
+    // Detect iOS devices specifically
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    
+    // Disable parallax on mobile or if user prefers reduced motion or on iOS
     const isMobile = window.innerWidth <= 768;
     
-    if (isMobile || prefersReducedMotion) {
+    if (isMobile || prefersReducedMotion || isIOS) {
+        // Force absolute positioning on mobile/iOS
         if (featuredServicesBg) {
             featuredServicesBg.style.position = 'absolute';
             featuredServicesBg.style.height = '100%';
+            featuredServicesBg.style.transform = 'none';
+            featuredServicesBg.style.willChange = 'auto';
         }
         if (servicesBg) {
             servicesBg.style.position = 'absolute';
             servicesBg.style.height = '100%';
+            servicesBg.style.transform = 'none';
+            servicesBg.style.willChange = 'auto';
         }
         return;
     }
@@ -397,27 +405,33 @@ function initParallax() {
     
     // Handle resize
     window.addEventListener('resize', () => {
-        if (window.innerWidth <= 768) {
+        const isIOSCheck = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+        
+        if (window.innerWidth <= 768 || isIOSCheck) {
             window.removeEventListener('scroll', handleScroll);
             if (featuredServicesBg) {
                 featuredServicesBg.style.position = 'absolute';
                 featuredServicesBg.style.height = '100%';
                 featuredServicesBg.style.transform = 'none';
+                featuredServicesBg.style.willChange = 'auto';
             }
             if (servicesBg) {
                 servicesBg.style.position = 'absolute';
                 servicesBg.style.height = '100%';
                 servicesBg.style.transform = 'none';
+                servicesBg.style.willChange = 'auto';
             }
         } else {
             window.addEventListener('scroll', handleScroll, { passive: true });
             if (featuredServicesBg) {
                 featuredServicesBg.style.position = 'fixed';
                 featuredServicesBg.style.height = '120%';
+                featuredServicesBg.style.willChange = 'transform';
             }
             if (servicesBg) {
                 servicesBg.style.position = 'fixed';
                 servicesBg.style.height = '120%';
+                servicesBg.style.willChange = 'transform';
             }
         }
     });
