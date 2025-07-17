@@ -135,6 +135,49 @@
     </section>
 
     <script>
+        // Mobile Navigation Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing mobile nav...');
+            
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.getElementById('nav-menu');
+
+            if (!navToggle || !navMenu) {
+                console.error('Navigation elements not found!', { navToggle, navMenu });
+                return;
+            }
+
+            console.log('Navigation elements found, adding click handler...');
+
+            navToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Hamburger clicked!');
+                
+                navMenu.classList.toggle('active');
+                console.log('Menu active class toggled, now:', navMenu.classList.contains('active'));
+                
+                // Animate hamburger menu
+                const bars = navToggle.querySelectorAll('.bar');
+                bars.forEach((bar, index) => {
+                    bar.style.transform = navMenu.classList.contains('active') 
+                        ? `rotate(${index === 0 ? 45 : index === 1 ? 45 : -45}deg) translate(${index === 1 ? '0' : index === 0 ? '6px, 6px' : '6px, -6px'})`
+                        : 'none';
+                });
+            });
+
+            // Close mobile menu when clicking on a link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    const bars = navToggle.querySelectorAll('.bar');
+                    bars.forEach(bar => {
+                        bar.style.transform = 'none';
+                    });
+                });
+            });
+        });
+
         // WhatsApp integration
         function openWhatsApp(service) {
             const phoneNumber = '595981123456'; // Replace with actual phone number
