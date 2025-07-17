@@ -193,21 +193,40 @@ body {
     overflow: hidden;
 }
 
-.hero-background {
+.hero-background,
+.about-background,
+.services-hero .hero-background {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: 1;
+    overflow: hidden;
 }
 
-.hero-bg-image {
+.hero-bg-image,
+.about-bg-image,
+.services-hero .hero-bg-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transition: transform 0.2s cubic-bezier(0, 0, 0.3, 1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+@media (max-width: 768px) {
+    .hero-bg-image,
+    .about-bg-image,
+    .services-hero .hero-bg-image {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
 }
 
 .hero-overlay {
@@ -1879,4 +1898,36 @@ body {
   margin-bottom: 0.7rem;
   margin-top: -0.5rem;
   font-family: 'Fira Sans', sans-serif;
+} 
+
+.hero,
+.about,
+.services-hero {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .hero,
+    .about,
+    .services-hero {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .hero-background,
+    .about-background,
+    .services-hero .hero-background {
+        position: absolute;
+        height: 100%;
+    }
+
+    .hero-bg-image,
+    .about-bg-image,
+    .services-hero .hero-bg-image {
+        position: absolute;
+        height: 100%;
+        transform: none !important;
+    }
 } 
