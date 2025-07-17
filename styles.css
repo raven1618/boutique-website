@@ -16,10 +16,6 @@ body {
     background-color: #0a0a0a;
     overflow-x: hidden;
     position: relative;
-    /* iOS Safari optimizations */
-    -webkit-overflow-scrolling: touch;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 
@@ -317,26 +313,14 @@ body {
         url('images/features-background.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: scroll; /* Changed from 'fixed' for Safari iOS compatibility */
+    background-attachment: fixed;
     overflow: hidden;
 }
 
-/* Safari iOS specific fix for background images */
-@supports (-webkit-touch-callout: none) {
+/* Fix for iOS Safari - disable parallax on mobile */
+@media (hover: none) and (pointer: coarse) {
     .featured-services {
         background-attachment: scroll !important;
-        background-size: cover !important;
-        background-position: center center !important;
-        /* Optimize for mobile performance */
-        will-change: auto;
-        transform: translateZ(0);
-    }
-    
-    /* Additional mobile optimization */
-    .hero-bg-image,
-    .about-bg-image {
-        will-change: auto;
-        transform: translateZ(0);
     }
 }
 
@@ -927,19 +911,14 @@ body {
         url('images/New-car5.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: scroll; /* Changed from 'fixed' for Safari iOS compatibility */
+    background-attachment: fixed;
     overflow: hidden;
 }
 
-/* Safari iOS specific fix for services background */
-@supports (-webkit-touch-callout: none) {
+/* Fix for iOS Safari - disable parallax on mobile */
+@media (hover: none) and (pointer: coarse) {
     .services {
         background-attachment: scroll !important;
-        background-size: cover !important;
-        background-position: center center !important;
-        /* Optimize for mobile performance */
-        will-change: auto;
-        transform: translateZ(0);
     }
 }
 
