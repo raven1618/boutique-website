@@ -317,10 +317,29 @@ body {
     overflow: hidden;
 }
 
-/* Fix for iOS Safari - disable parallax on mobile */
+/* Fix for iOS Safari - disable parallax on mobile - Multiple approaches */
 @media (hover: none) and (pointer: coarse) {
     .featured-services {
         background-attachment: scroll !important;
+    }
+}
+
+/* iOS Safari specific fix */
+@supports (-webkit-touch-callout: none) {
+    .featured-services {
+        background-attachment: scroll !important;
+    }
+}
+
+/* Mobile devices fix - broader approach */
+@media only screen and (max-width: 1024px) {
+    .featured-services {
+        background-attachment: scroll !important;
+        /* Additional iOS Safari fixes */
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
 }
 
@@ -915,10 +934,29 @@ body {
     overflow: hidden;
 }
 
-/* Fix for iOS Safari - disable parallax on mobile */
+/* Fix for iOS Safari - disable parallax on mobile - Multiple approaches */
 @media (hover: none) and (pointer: coarse) {
     .services {
         background-attachment: scroll !important;
+    }
+}
+
+/* iOS Safari specific fix */
+@supports (-webkit-touch-callout: none) {
+    .services {
+        background-attachment: scroll !important;
+    }
+}
+
+/* Mobile devices fix - broader approach */
+@media only screen and (max-width: 1024px) {
+    .services {
+        background-attachment: scroll !important;
+        /* Additional iOS Safari fixes */
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
 }
 
